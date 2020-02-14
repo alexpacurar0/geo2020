@@ -6,52 +6,32 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dvse.geo2020.BaseRecyclerViewAdapter;
 import com.dvse.geo2020.R;
 
 import java.util.List;
 
-public class ContinentsAdapter extends RecyclerView.Adapter<ContinentsAdapter.VH> {
-
-    List<String> continents;
+public class ContinentsAdapter extends BaseRecyclerViewAdapter<String, ContinentsAdapter.VH> {
 
     public ContinentsAdapter(List<String> continents) {
-        this.continents = continents;
-    }
-
-    private Consumer<String> onContinentClickListener;
-
-    public void setOnContinentClickListener(Consumer<String> onContinentClickListener) {
-        this.onContinentClickListener = onContinentClickListener;
-    }
-
-    @NonNull
-    @Override
-    public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View res = LayoutInflater.from(parent.getContext()).inflate(R.layout.continent_item, parent, false);
-        res.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onContinentClickListener != null) {
-                    onContinentClickListener.accept((String) v.getTag(R.id.continent));
-                }
-            }
-        });
-        return new VH(res);
+        super(continents);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VH holder, int position) {
-        String continent = continents.get(position);
-        holder.textView.setText(continent);
-        holder.itemView.setTag(R.id.continent, continent);
+    protected VH onCreateViewHolder(View view) {
+        return new VH(view);
     }
 
     @Override
-    public int getItemCount() {
-        return continents.size();
+    protected View getView(ViewGroup parent, int viewType) {
+        return LayoutInflater.from(parent.getContext()).inflate(R.layout.continent_item, parent, false);
+    }
+
+    @Override
+    protected void setupView(VH holder, int position, String item) {
+        holder.textView.setText(item);
     }
 
     static class VH extends RecyclerView.ViewHolder {

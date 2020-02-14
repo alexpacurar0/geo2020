@@ -19,10 +19,10 @@ public class StudyActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         ContinentsAdapter adapter = new ContinentsAdapter(Helper.getContinents());
-        adapter.setOnContinentClickListener(new Consumer<String>() {
+        adapter.setOnItemClickListener(new Consumer<String>() {
             @Override
-            public void accept(String continent) {
-                new CountriesDialog().show(StudyActivity.this, continent);
+            public void accept(String item) {
+                new CountriesDialog().show(StudyActivity.this, item);
             }
         });
         recyclerView.setAdapter(adapter);

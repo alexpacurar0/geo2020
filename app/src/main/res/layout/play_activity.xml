@@ -4,13 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/continents"
+    <TextView
+        android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <Spinner
-        android:id="@+id/nrQuestions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </LinearLayout>
