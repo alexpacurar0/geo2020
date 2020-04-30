@@ -4,5 +4,5 @@ import java.io.Serializable;
 
 public class GameSettings implements Serializable {
     public String continent;
-    public int nrQuesions;
+    public int nrQuestions;
 }

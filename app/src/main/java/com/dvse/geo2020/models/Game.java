@@ -36,7 +36,7 @@ public class Game {
     }
 
     void nextRound() {
-        if (rounds == settings.nrQuesions) {
+        if (rounds == settings.nrQuestions) {
             result.duration = System.currentTimeMillis() - result.startTime;
             onGameOver.accept(result);
         } else {

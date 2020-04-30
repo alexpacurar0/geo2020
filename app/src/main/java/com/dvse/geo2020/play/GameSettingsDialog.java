@@ -23,7 +23,7 @@ public class GameSettingsDialog {
                     public void onClick(DialogInterface dialog, int which) {
                         GameSettings settings = new GameSettings();
                         settings.continent = (String) ((Spinner) ((Dialog) dialog).findViewById(R.id.continents)).getSelectedItem();
-                        settings.nrQuesions = (int) ((Spinner) ((Dialog) dialog).findViewById(R.id.nrQuestions)).getSelectedItem();
+                        settings.nrQuestions = (int) ((Spinner) ((Dialog) dialog).findViewById(R.id.nrQuestions)).getSelectedItem();
                         Intent intent = new Intent(((Dialog) dialog).getContext(), PlayActivity.class);
                         intent.putExtra(PlayActivity.SETTINGS_KEY, settings);
                         ((Dialog) dialog).getContext().startActivity(intent);
